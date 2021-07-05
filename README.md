@@ -32,6 +32,9 @@ This exercise provided opportunities to test my budding skills with Express.js c
 - JavaScript
 - Node.js
 - [NPM Express.js Package](https://www.npmjs.com/package/express)
+- [NPM MySQL2 Package](https://www.npmjs.com/package/mysql2)
+- [NPM Sequelize Package](https://www.npmjs.com/package/sequelize)
+- [NPM DotENV Package](https://www.npmjs.com/package/dotenv)
 <!-- - [NPM FS Package](https://www.npmjs.com/package/fs) -->
 <!-- - [NPM Path Package](https://www.npmjs.com/package/path)
 - [NPM Router Package](https://www.npmjs.com/package/router)
