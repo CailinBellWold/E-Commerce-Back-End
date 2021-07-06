@@ -9,16 +9,25 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 
 // > **Hint**: Be sure to look at the mini-project code for syntax help and use your model's column definitions to figure out what `req.body` will be for POST and PUT routes!
 
-
 // get all products
 router.get('/', async (req, res) => {
   try {
     const productData = await Product.findAll({
       include: [
-        { model: Category },
-        { model: Tag },
+        { 
+          model: Category,
+          attributes: ['category_name']
+        },
+        { 
+          model: Tag, through: ProductTag, as: 'product_tags',
+          attributes: ['tag_name']
+        },
       ],
     });
+    if(!productData) {
+      res.status(404).json({ message: 'No products were found!'});
+      return;
+    }
     res.status(200).json(productData);
   } catch (err) {
     console.log(err);
@@ -26,15 +35,15 @@ router.get('/', async (req, res) => {
   }
 });
 
-// get one product
-router.get('/:id', (req, res) => {
-  // find a single product by its `id`
-  // be sure to include its associated Category and Tag data
+// get one product by its 'id'
+router.get('/:id', async (req, res) => {
   try {
     const productData = await Product.findByPk(req.params.id, {
-    //   // JOIN with locations, using the Trip through table
-    //   include: [{ model: Category, through: Trip, as: 'planned_trips' }]
-    // });
+      include: [
+        { model: Category},
+        { model: Tag, through: ProductTag, as: 'product_tags' },
+      ],
+    });
 
     if (!productData) {
       res.status(404).json({ message: 'No product found with this id!' });
@@ -43,11 +52,9 @@ router.get('/:id', (req, res) => {
 
     res.status(200).json(productData);
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
-    }
-    )
-  };
-
+  }
 });
 
 // create new product
