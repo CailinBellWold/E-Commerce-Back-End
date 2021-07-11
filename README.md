@@ -40,19 +40,46 @@ This exercise provided opportunities to test my budding skills with Express.js c
 
 ## Local Installation & Usage
 
-<!-- 1. Clone this E-Commerce-Back-End repo to your machine.
-2. Open the repo in your terminal.
-3. Run ```npm init```
-4. Run ```npm install```
-5. Open E-Commerce-Back-End (now stored on your machine) in your terminal.
-6. Run ``` node server ```
-7. Open [http://localhost:3000](http://localhost:3000) in the modern browser of your choice. -->
+To use this app, you will need a MySQL Workbench account, and to have the app installed on your machine. Documentation with installation instructions are available [here.](https://dev.mysql.com/doc/workbench/en/wb-installing.html) 
+
+To test the API routes in this app, you may wish to have an Insomnia account and to have the app installed on your machine. Documentation and instructions are available [here.](https://support.insomnia.rest/article/156-installation1) 
+
+STEP 1
+
+    1.1 Clone this E-Commerce-Back-End repo to your machine.
+
+STEP 2
+
+From Visual Studio Code or the code editor of your choice:
+
+    2.1 Open the repo.  
+    2.2 Locate and open the .env.EXAMPLE file, located in the root directory.
+    2.3 Add your own MySQL Workbench Username and Password to the env.EXAMPLE file.
+    2.4 Re-name the file to .env (i.e. remove .EXAMPLE).
+    2.5 Save your changes.
+    2.6 Locate and open db\schema.sql.
+    2.7 Copy and paste the database schema into a new MySQL Workbench query tab and run it. Refresh and view your updated schemas to ensure that ecommerce_db now appears.
+
+STEP 3
+
+From your terminal, run:
+
+    3.1 npm i
+    3.2 npm run watch
+
+STEP 4: API ROUTE TESTS
+
+From your terminal, run:
+
+    4.1 npm run seed
+
+From Insomnia:
+
+    4.2 Run tests for each API route (GET all, GET by id, PUSH, PUT, and DELETE) route using http://localhost:3001/api/ for each model (Category, Product, and Tag), with pathing listed as categories, products, and tags (i.e. GET http://localhost:3001/api/categories/).
 
 ## Demo 
 
-DEMO | *Demo live app*
-
-<!-- ![E-Commerce Back End demo.](./E_Commerce_Back_End_Demo.gif) -->
+Link: [E-Commerce Back End demo](https://drive.google.com/file/d/1HTyx6dRZKhin4lxi1JXKZvK0jWWVaZga/view)
 
 ## MIT License
 &copy;2021 Cailin Bell Wold
