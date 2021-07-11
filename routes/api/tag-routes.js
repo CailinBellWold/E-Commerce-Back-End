@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// get one tag by its 'id'
+// get a tag by its 'id'
 router.get('/:id', async (req, res) => {
   try {
     const tagData = await Tag.findByPk(req.params.id, {
@@ -59,27 +59,26 @@ router.post('/', async (req, res) => {
   }
 });
 
-// update a tag's name by its `id`
+// update a tag by its `id`
 router.put('/:id', async (req, res) => {
   try {
-    const tagData = await Tag.update({
+    const tagData = await Tag.update(req.body, {
       where: {
-        id: req.params.id
-      }
-    });
-
-    if (!tagData) {
-      res.status(404).json({ message: 'No tag found with this id!' });
+        id: req.params.id,
+      },
+    })
+  if (!tagData) {
+      res.status(404).json({ message: 'No tag found matching this id.' });
       return;
     }
-
     res.status(200).json(tagData);
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
 
-// delete tag by its `id`
+// delete a tag by its `id`
 router.delete('/:id', async (req, res) => {
   try {
     const tagData = await Tag.destroy({

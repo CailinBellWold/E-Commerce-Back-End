@@ -25,8 +25,8 @@ This exercise provided opportunities to test my budding skills with Express.js c
 1. When a user adds a database name, MySQL username, and MySQL password to an environment variable file, they are able to connect to a database using Sequelize. 
 2. When a user enters schema and seed commands, a development database is created and is seeded with test data.
 3. When a user enters the command to invoke the application, their server is started and the Sequelize models are synced to the MySQL database.
-4. (In Progress) When a user opens API GET routes in Insomnia Core for categories, products, or tags,the data for each of these routes is displayed in a formatted JSON.
-5. (In Progress) When a user tests API POST, PUT, and DELETE routes in Insomnia Core, they are able to successfully create, update, and delete data in their database.
+4. When a user opens API GET routes in Insomnia Core for categories, products, or tags,the data for each of these routes is displayed in a formatted JSON.
+5. When a user tests API POST, PUT, and DELETE routes in Insomnia Core, they are able to successfully create, update, and delete data in their database.
 
 ## Technologies Used
 - JavaScript
@@ -35,11 +35,8 @@ This exercise provided opportunities to test my budding skills with Express.js c
 - [NPM MySQL2 Package](https://www.npmjs.com/package/mysql2)
 - [NPM Sequelize Package](https://www.npmjs.com/package/sequelize)
 - [NPM DotENV Package](https://www.npmjs.com/package/dotenv)
-<!-- - [NPM FS Package](https://www.npmjs.com/package/fs) -->
-<!-- - [NPM Path Package](https://www.npmjs.com/package/path)
 - [NPM Router Package](https://www.npmjs.com/package/router)
-- [NPM Util Package](https://www.npmjs.com/package/util)
-- [NPM UUID Package](https://www.npmjs.com/package/uuid) -->
+- [NPM Nodemon Package](https://www.npmjs.com/package/nodemon)
 
 ## Local Installation & Usage
 
@@ -80,5 +77,3 @@ SOFTWARE.
 
 ## Questions
 For inquiries, please contact [Cailin Bell Wold](https://github.com/CailinBellWold).
-
-<!-- Special thanks to my tutor, [Armando Osorio](https://github.com/mandoosorio), for guidance on this project. -->

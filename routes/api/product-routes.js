@@ -1,4 +1,4 @@
-//TO DO: PUT Works (updates the DB), but I get a 400 in Insomnia
+//TO DO: PUT Works (updates the DB), but I get a 400 in Insomnia. Error in console says can't read property 'filter' of undefined on line 97.
 
 const router = require('express').Router();
 const { Product, Category, Tag, ProductTag } = require('../../models');
@@ -31,7 +31,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// get one product by its 'id'
+// get a product by its 'id'
 router.get('/:id', async (req, res) => {
   try {
     const productData = await Product.findByPk(req.params.id, {
@@ -55,7 +55,6 @@ router.get('/:id', async (req, res) => {
 
 // create new product
 router.post('/', (req, res) => {
-  console.log("REQ.BODY from inside post route");
   Product.create(req.body)
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
@@ -78,7 +77,7 @@ router.post('/', (req, res) => {
     });
 });
 
-// update product
+// update a product by its 'id'
 router.put('/:id', (req, res) => {
   // update product data
   Product.update(req.body, {
@@ -115,12 +114,12 @@ router.put('/:id', (req, res) => {
     })
     .then((updatedProductTags) => res.json(updatedProductTags))
     .catch((err) => {
-      // console.log(err);
+      console.log(err);
       res.status(400).json(err);
     });
 });
 
-// delete product by its `id`
+// delete a product by its `id`
 router.delete('/:id', async (req, res) => {
   try {
     const productData = await Product.destroy({
@@ -130,7 +129,7 @@ router.delete('/:id', async (req, res) => {
     });
 
     if (!productData) {
-      res.status(404).json({ message: 'No product found with this id!' });
+      res.status(404).json({ message: 'No product found matching this id!' });
       return;
     }
 
